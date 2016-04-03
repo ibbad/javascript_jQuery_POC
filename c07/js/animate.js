@@ -11,5 +11,5 @@ $(function(){
             $(this).remove();
         });
     });
-    
+
 });
