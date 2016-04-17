@@ -97,3 +97,82 @@ function chunkArrayInGroups(arr, size) {
   return rer;
 }
 chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+function slasher(arr, howMany) {
+  for (var i=0; i<howMany; i++){
+    arr.shift();
+  }
+  return arr;
+}
+slasher([1, 2, 3], 2);
+
+function mutation(arr) {
+  arr[0]=arr[0].toLowerCase();
+  arr[1]=arr[1].toLowerCase();
+  for (var i=0; i<arr[1].length; i++){
+    if(arr[0].indexOf(arr[1][i]) < 0){
+      return false;
+    }
+  }
+  return true;
+}
+mutation(["hello", "hey"]);
+
+
+function bouncer(arr) {
+  return arr.filter(function (val){
+    if (val){
+      return true;
+    } else {
+      return false;
+    }
+  });
+}
+bouncer([7, "ate", "", false, 9]);
+
+function destroyer(arr) {
+  var args = Array.from(arguments)
+  var rer = args[0];
+  return rer.filter(function (val){
+      for (var j=1;j<args.length;j++){
+        if (val==args[j]){
+          return false;
+        }
+      }
+      return true;
+  });
+}
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+function getIndexToIns(arr, num) {
+  arr = arr.sort(function (prev, current){
+    return prev-current;
+  });
+  for (var i=0; i<arr.length; i++){
+    if (num <= arr[i]){
+      break;
+    }
+  }
+  return i;
+}
+getIndexToIns([40, 60], 50);
+
+function rot13(str) { // LBH QVQ VG!
+  var decipher = '';
+  for (var i in str){
+    // For Non-alphabetic characters.
+    if (str.charCodeAt(i) < 65 || str.charCodeAt(i) > 91){
+      decipher += str[i];
+      continue;
+    }
+    // for Char A-M loop back over Z add 13.
+    if (str.charCodeAt(i) < 78){
+      decipher += String.fromCharCode(str.charCodeAt(i) + 13);
+    } else {
+      // for N-Z
+      decipher += String.fromCharCode(str.charCodeAt(i) - 13);
+    }
+  }
+  return decipher;
+}
+rot13("SERR PBQR PNZC");
