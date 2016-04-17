@@ -248,3 +248,24 @@ function whereAreYou(collection, source) {
   return arr;
 }
 whereAreYou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+/*Replace a word(before) with another(after) in a string(str)*/
+function myReplace(str, before, after) {
+  var re = new RegExp(before,"gi");
+  if (isUpper(before[0])){
+    return str.replace(re, capitalize(after));
+  }
+  return str.replace(re, after);
+}
+
+/* Checks if the character is uppercase (true) or lowercase (false) */
+function isUpper(character){
+  return character == character.toUpperCase();
+}
+
+/* Capitalize a string i.e. capitalize("potato") --> Potato */
+function capitalize(str){
+  return str[0].toUpperCase() + str.substr(1, str.length).toLowerCase();
+}
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
