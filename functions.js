@@ -294,3 +294,22 @@ function capitalize(str){
 }
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+
+
+/* DNA Base-Pairs */
+function pairElement(str) {
+  var combi = [];
+  var lookup = {
+    'A' : 'T',
+    'T' : 'A',
+    'C' : 'G',
+    'G' : 'C'
+  }
+  for (var i=0;i<str.length;i++){
+    var arr = [str[i], lookup[str[i]]];
+    combi.push(arr);
+  }
+  return combi;
+}
+pairElement("GCG");
+
