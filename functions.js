@@ -45,7 +45,6 @@ function titleCase(str) {
   }
   return words.join(' ');
 }
-
 titleCase("I'm a little tea pot");
 
 function largestOfFour(arr) {
@@ -63,3 +62,38 @@ function largestOfFour(arr) {
 }
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+function confirmEnding(str, target) {
+  return str.substr(str.length-target.length) == target;
+}
+confirmEnding("Bastian", "n");
+
+function repeatStringNumTimes(str, num) {
+  var rer = '';
+  for (var i=0;i<num;i++){
+    rer += str;
+  }
+  return rer;
+}
+repeatStringNumTimes("abc", 3);
+
+function truncateString(str, num) {
+  if (str.length > num){
+    if (num <=3 ){
+      return str.slice(0, num) + '...';
+    }
+    return str.slice(0, num-3) + '...';
+  }
+  return str;
+}
+truncateString("A-tisket a-tasket A green and yellow basket", 11);
+
+function chunkArrayInGroups(arr, size) {
+  var rer = []
+  for (var i=0; i<arr.length; i+=size){
+
+    rer.push(arr.slice(i, i+size));
+  }
+  return rer;
+}
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
