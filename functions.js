@@ -226,3 +226,25 @@ function convertToRoman(num) {
   return Array(+digits.join("") + 1).join("M") + roman;
 }
 convertToRoman(36);
+
+
+function whereAreYou(collection, source) {
+  // What's in a name?
+  var arr = [];
+  key = Object.keys(source);
+  for(var i=0; i<collection.length;i++){
+    var valid=true;
+    for (var j=0;j<key.length;j++){
+      console.log(collection[i].hasOwnProperty(key[j]));
+      console.log(collection[i][key[j]]==source[key[j]]);
+      if (!collection[i].hasOwnProperty(key[j]) || collection[i][key[j]]!==source[key[j]]){
+        valid=false;
+      }
+    }
+    if (valid===true){
+      arr = arr.concat(collection[i]);
+    }
+  }
+  return arr;
+}
+whereAreYou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
