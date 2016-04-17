@@ -144,6 +144,31 @@ function destroyer(arr) {
 }
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
+/* Pig Latin */
+function translatePigLatin(str) {
+  if (!isConsonant(str[0])){
+    return str+'way';
+  }
+  for(var i=0; i <str.length; i++){
+    if (isConsonant(str[i])){
+      return str.substr(0, i-1) + str.substr(i+1, str.length) + str[i] + 'ay';
+    }
+  }
+}
+
+function isConsonant(character){
+  var vowel = ['a', 'e', 'i', 'o', 'u'];
+  var isVowel = false;
+  for (var i=0; i<vowel.length; i++){
+     if (character == vowel[i]){
+       isVowel=true;
+     }
+  }
+  return !isVowel;
+}
+translatePigLatin("consonant");
+translatePigLatin("glove");
+
 function getIndexToIns(arr, num) {
   arr = arr.sort(function (prev, current){
     return prev-current;
