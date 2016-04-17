@@ -176,3 +176,13 @@ function rot13(str) { // LBH QVQ VG!
   return decipher;
 }
 rot13("SERR PBQR PNZC");
+
+
+function sumAll(arr) {
+  var rer = 0;
+  for (var i=Math.min.apply(null, arr); i<=Math.max.apply(null, arr); i++){
+    rer += i;
+  }
+  return rer;
+}
+sumAll([1, 4]);
